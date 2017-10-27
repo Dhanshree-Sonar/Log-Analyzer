@@ -19,21 +19,24 @@ This is an internal reporting tool for newspaper site. It retrieves log from the
 5. On terminal change directory to `vagrant` directory and run `psql -d news -f newsdata.sql`
 
 ## Create VIEWS, which are required for successful execution of log_analyzer.py
-
+1. View to count the number of hits to the path
 `CREATE VIEW path_visits AS
 SELECT path, count(*) as visits
 FROM log
 GROUP BY path;`
 
+2. View to retrieve maximum used columns from a log table
 `CREATE VIEW log_data AS
 SELECT path, status, time
 FROM log;`
 
+3. View to count number of hits per day 
 `CREATE VIEW all_load AS
 SELECT to_char(time, 'Month DD, YYYY') AS date, count(*) AS visits
 FROM log_data
 GROUP BY date;`
 
+4. View to count number of load errors per day
 `CREATE VIEW error_load AS
 SELECT to_char(time, 'Month DD, YYYY') AS date, count(*) AS visits
 FROM log_data
@@ -45,15 +48,15 @@ GROUP BY date;`
 1. Place `log_analyzer.py` into `vagrant` directory.(Perform this just for the first time, no need to copy file every time you run the code)
 2. On terminal change directory to `vagrant` directory and run `vagrant up`.
 3. Run `vagrant ssh`.
-4. Run the analyzer file `python log_analyzer.py`.
+4. Run the analyzer file `python2.7 log_analyzer.py`.
 
 ## Analysis description
 
 This analyzer provides 4 answers:
-1. Provides list of articles, which have most visitors. This will help to find most popular articles.
-2. Provides list of authors, whose articles are most viewed. This will help to find most popular authors.
-3. Provide list of dates, when load errors are more than 1%. This will help to when site user faced more issues.
-4. Provides day of the week, which has most visits. This will help to find on which day more user visits site, so upload interesting articles on that day will target maximum audience.
+1. Provides list of articles, which have most visitors. This will help to find the most popular articles.
+2. Provides list of authors, whose articles are most viewed. This will help to find the most popular authors.
+3. Provide list of dates, when load errors are more than 1%. This will help to find out when site users faced more issues.
+4. Provides day of the week, which has the most visits. This will help to find on which day more user visits site, so upload interesting articles on that day will target maximum audience.
 
 ## Enhancement
 
