@@ -18,7 +18,7 @@ This is an internal reporting tool for newspaper site. It retrieves log from the
 4. Place `newsdata.sql` into `vagrant` directory, which is shared with your virtual machine
 5. On terminal change directory to `vagrant` directory and run `psql -d news -f newsdata.sql`
 
-## Create VIEWS, which are required for successful execution of log_analyser.py
+## Create VIEWS, which are required for successful execution of log_analyzer.py
 
 `CREATE VIEW path_visits AS
 SELECT path, count(*) as visits
