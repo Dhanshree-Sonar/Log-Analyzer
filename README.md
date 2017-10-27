@@ -57,4 +57,4 @@ This analyzer provides 4 answers:
 
 ## Enhancement
 
-`log_analyzer.py` contains `run_analysis()` method, which provides all the analysis. You can improve analysis by creating more functions and calling those function in `run_analysis()` method.
+`log_analyzer.py` contains `run_analysis()` method, which provides all the analysis. You can improve report by creating more functions and calling those function in `run_analysis()` method.
