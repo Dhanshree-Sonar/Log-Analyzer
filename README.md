@@ -8,7 +8,7 @@ This is an internal reporting tool for newspaper site. It retrieves log from the
 - Install [Vagrant](https://www.vagrantup.com/downloads.html)
 - Download [FSND-Virtual-Machine](https://github.com/udacity/fullstack-nanodegree-vm)
 - Download [newsdata.sql](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
-- log_analyser.py
+- log_analyzer.py
 
 ## Initial setup
 
