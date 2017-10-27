@@ -10,7 +10,19 @@ class LogAnalyser():
         """Initializes the newpaper site log's DB name and DB connection."""
         self.db_name = "news"
         self.db, self.db_cursor = self.db_open_connection()
-
+        
+    def __del__(self):
+        """Closes DB connection after required analysis has done."""
+        try:
+            self.db.close()
+        except psycopg2.Error as e:
+            print("Unable to close DB connection.. \n")
+            print e.pgerror
+            print e.diag.message_detail
+            sys.exit(1)
+        else:
+            print("DB connection closed successfully.. \n")
+            
     def run_analysis(self):
         """
         This method performs the analysis on log data using different methods,
@@ -37,9 +49,6 @@ class LogAnalyser():
         print(result)
         print("------------------------------------------------------------\n")
 
-        # Closing DB connection after required analysis has done.
-        self.db_close_connection(self.db)
-
     def db_open_connection(self):
         """Opens DB connection."""
         try:
@@ -53,19 +62,6 @@ class LogAnalyser():
             db_cursor = db.cursor()
             print("DB connection opened successfully.. \n")
             return db, db_cursor
-
-
-    def db_close_connection(self, db):
-        """Closes DB connection."""
-        try:
-            db.close()
-        except psycopg2.Error as e:
-            print("Unable to close DB connection.. \n")
-            print e.pgerror
-            print e.diag.message_detail
-            sys.exit(1)
-        else:
-            print("DB connection closed successfully.. \n")
 
     def search_popular_articles(self, count):
         """Provides list of articles which have most visitors."""
