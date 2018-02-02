@@ -18,6 +18,12 @@ This is an internal reporting tool for newspaper site. It retrieves log from the
 4. Place `newsdata.sql` into `vagrant` directory, which is shared with your virtual machine
 5. On terminal change directory to `vagrant` directory and run `psql -d news -f newsdata.sql`
 
+## Built with
+
+1. Python
+2. PostgreSQL
+3. psycopg2 python module to connect to database
+
 ## Create VIEWS, which are required for successful execution of log_analyzer.py
 1. View to count the number of hits to the path
 `CREATE VIEW path_visits AS
