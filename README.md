@@ -1,6 +1,6 @@
 # Log-Analyzer
 
-This is an internal reporting tool for newspaper site. It retrieves log from the database and generates the report, which provides analysis such as most popular articles and most popular authors.
+This is an internal reporting tool for the newspaper site. It retrieves the log from the database and generates the report, which provides analysis such as most popular articles and most popular authors.
 
 ## Prerequisites
 
